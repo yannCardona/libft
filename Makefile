@@ -8,9 +8,9 @@ $(NAME):
 	cc -Werror -Wextra -Wall $(SRC) -o $(NAME)
 
 clean:
-	rm *.o
+	-rm -f *.o
 
 fclean: clean
-	rm $(NAME)
+	-rm -f $(NAME)
 
 re: fclean all
