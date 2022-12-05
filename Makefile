@@ -1,11 +1,12 @@
 SRC = *.c
 
-NAME = libft
+NAME = libft.a
 
 all: $(NAME)
 
-$(NAME):
-	cc -Werror -Wextra -Wall $(SRC) -o $(NAME)
+$(NAME): $(SRC)
+	cc -Werror -Wextra -Wall -c $^
+	ar -rc $(NAME) $(wildcard *.o)
 
 clean:
 	-rm -f *.o

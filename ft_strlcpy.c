@@ -6,13 +6,13 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:36:52 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/03 18:50:09 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:09:47 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_size_t	ft_strlcpy(char *restrict dst, const char *restrict src,
+t_size_t	ft_strlcpy(char *dst, const char *src,
 t_size_t dstsize)
 {
 	t_size_t	l;
