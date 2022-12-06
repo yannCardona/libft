@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:02:07 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/05 17:21:45 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/06 16:59:42 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		*ft_memset(void *b, int c, t_size_t len);
 void		ft_bzero(void *s, t_size_t n);
 void		*ft_memcpy(void *dst, const void *src,
 				t_size_t n);
-void		*ft_memmove(void *dst, const void *src, size_t len);
+void		*ft_memmove(void *dst, const void *src, t_size_t len);
 t_size_t	ft_strlcpy(char *dst, const char *src,
 				t_size_t dstsize);
 t_size_t	ft_strlcat(char *dst, const char *src,
