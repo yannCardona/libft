@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:00:11 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/06 17:54:43 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:40:46 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*temp[len];
+	char	temp[len];
 
 	if (!(dst || src))
 		return (NULL);
