@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 15:57:24 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/08 19:51:42 by ycardona         ###   ########.fr       */
+/*   Created: 2022/12/08 17:00:18 by ycardona          #+#    #+#             */
+/*   Updated: 2022/12/08 19:16:29 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	const char	*c_s;
-	size_t		i;
+	size_t	i;
+	size_t	j;
 
-	c_s = (const char *) s;
+	if (*needle == '\0')
+		return ((char *) haystack);
 	i = 0;
-	while (i < n)
+	while (haystack[i] && (i < len))
 	{
-		if (c_s[i] == c)
-			return ((void *) &c_s[i]);
+		j = 0;
+		if (haystack[i] == needle[j])
+		{
+			while (haystack[i + j] == needle[j] && haystack[i + j]
+				&& i + j < len)
+			{
+				j++;
+				if (needle[j] == '\0')
+					return ((char *) &haystack[i]);
+			}
+		}
 		i++;
 	}
 	return (NULL);
 }
-
-/* int main(void)
-{	
-	char s[] = {0, 1, 2 ,3 ,4 ,5};
-	printf("%p\n", memchr(s, 3 + 256, 9));
-	printf("%p\n", s + 3);
-	return (0);
-} */

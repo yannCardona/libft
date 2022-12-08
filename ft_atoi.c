@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 15:57:24 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/08 19:51:42 by ycardona         ###   ########.fr       */
+/*   Created: 2022/12/08 17:49:39 by ycardona          #+#    #+#             */
+/*   Updated: 2022/12/08 18:35:56 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+static int	ft_isspace(int c)
 {
-	const char	*c_s;
-	size_t		i;
-
-	c_s = (const char *) s;
-	i = 0;
-	while (i < n)
-	{
-		if (c_s[i] == c)
-			return ((void *) &c_s[i]);
-		i++;
-	}
-	return (NULL);
+	if ((9 <= c && c <= 13) || c == ' ')
+		return (1);
+	else
+		return (0);
 }
 
-/* int main(void)
-{	
-	char s[] = {0, 1, 2 ,3 ,4 ,5};
-	printf("%p\n", memchr(s, 3 + 256, 9));
-	printf("%p\n", s + 3);
-	return (0);
-} */
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	r;
+	int	sign;
+
+	sign = 1;
+	i = 0;
+	r = 0;
+	while (ft_isspace(str[i]) == 1)
+		i++;
+	if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i +1]) == 1)
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (ft_isdigit(str[i]) == 1)
+	{
+		r = 10 * r + str[i] - 48;
+		i++;
+	}
+	return (sign * r);
+}
