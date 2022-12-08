@@ -15,18 +15,25 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
-	char	*r;
+	int		r;
 
+	r = -1;
 	i = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
-			r = (char *) &(s[i]);
+			r = i;
 		i++;
 	}
 	if (c == '\0')
 		return ((char *) &(s[i]));
-	if (*r == c)
-		return (r);
+	if (0 <= r && s[r] == c)
+		return ((char *) &(s[r]));
 	return (NULL);
 }
+
+/* int main(void)
+{
+	char s[] = "teste";
+	printf("%p   |  %p\n", ft_strrchr(s, 'e'), strrchr(s, 'e'));
+} */

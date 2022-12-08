@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 13:53:18 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/07 14:26:22 by ycardona         ###   ########.fr       */
+/*   Created: 2022/12/08 15:57:24 by ycardona          #+#    #+#             */
+/*   Updated: 2022/12/08 16:43:12 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	char	*c_s;
+	size_t			i;
 
+	c_s = (char *) s;
 	i = 0;
-	while (s[i])
+	while (i < n)
 	{
-		if (s[i] == c)
-			return ((char *) &(s[i]));
+		if (c_s[i] == c)
+			return ((void *) &c_s[i]);
 		i++;
 	}
-	if (c == '\0')
-		return ((char *) &(s[i]));
 	return (NULL);
 }
 
-/* int main(void)
+/* int	main(void)
 {
-	char s[] = "teste";
-	printf("%p   |  %p\n", ft_strchr(s, 'e'), strchr(s, 'e'));
-} */
+	int tab[7] = {-49, 49, 1, -1, 0, -2, 2};
+    printf("%p | %p", memchr(tab, -1, 7), ft_memchr(tab, -1, 7));
+}
+ */
