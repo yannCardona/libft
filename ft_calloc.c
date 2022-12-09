@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 17:00:54 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/09 15:15:46 by ycardona         ###   ########.fr       */
+/*   Created: 2022/12/09 13:43:42 by ycardona          #+#    #+#             */
+/*   Updated: 2022/12/09 14:56:13 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	size_t			i;
-	unsigned char	*str;
+	void	*ptr;
 
-	str = s;
-	i = 0;
-	while (i < n)
-	{
-		str[i] = '\0';
-		i++;
-	}
+	ptr = (void *) malloc(nelem * elsize);
+	if (ptr == NULL)
+		return (NULL);
+	ptr = ft_memset(ptr, 0, nelem * elsize);
+	return (ptr);
 }
