@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 13:43:42 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/10 11:12:12 by ycardona         ###   ########.fr       */
+/*   Created: 2022/12/10 12:05:05 by ycardona          #+#    #+#             */
+/*   Updated: 2022/12/10 12:23:47 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nelem, size_t elsize)
+void ft_putendl_fd(char *s, int fd)
 {
-	void	*ptr;
-
-	ptr = (void *) malloc(nelem * elsize);
-	if (ptr == NULL)
-		return (NULL);
-	ptr = ft_memset(ptr, 0, nelem * elsize);
-	return (ptr);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

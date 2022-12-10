@@ -6,20 +6,22 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:38:37 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/09 18:51:37 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/10 09:24:10 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* static int	*ft_count(char const *s, char c)
+static size_t	*ft_count(char const *s, char c)
 {
-	int	i;
-	int	j;
-	int	*tab;
+	size_t	i;
+	size_t	j;
+	size_t	*tab;
 
 	i = 0;
-	tab = (int *) malloc(8);
+	tab = (size_t *) malloc(8);
+	if (tab == NULL)
+		return (NULL);
 	tab[0] = 0;
 	tab[1] = 0;
 	while (s[i])
@@ -27,74 +29,82 @@
 		if (s[i] != c)
 		{
 			j = 0;
-			while (s[i + j] != c)
+			while (s[i + j] != c && s[i + j])
 				j++;
 			tab[0] += 1;
 			if (tab[1] < j)
 				tab[1] = j;
-			i = i + j;
+			i = i + j - 1;
 		}
 		i++;
 	}
 	return (tab);
 }
- */
-static int	ft_wordcount(char const *s, char c)
-{
-	int		i;
-	int		j;
-	size_t	count;
 
+static char	**ft_2d_calloc(char const *s, char c)
+{
+	char	**mat;
+	size_t	*count;
+	size_t	i;
+
+	count = ft_count(s, c);
+	if (count == NULL)
+		return (NULL);
+	mat = malloc((count[0] + 1) * 8);
+	if (mat == NULL)
+		return (NULL);
+	mat = ft_memset(mat, 0, count[0] + 1);
 	i = 0;
-	count = 0; 
-	while (s[i])
+	while (i < count[0])
 	{
-		if (s[i] != c)
-		{
-			j = 0;
-			while (s[i + j] != c)
-				j++;
-			count += 1;
-			i = i + j;
-		}
+		mat[i] = malloc((count[1] + 1) * 8);
+		if (mat == NULL)
+			return (NULL);
+		mat[i] = ft_memset(mat[i], 0, count[1] + 1);
 		i++;
 	}
-	return (count);
+	free(count);
+	return (mat);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	//int		*count;
 	char	**split;
 	int		i;
-	size_t		j;
+	int		j;
 	int		k;
 
-	//count = ft_count(s, c);
-	*split = (char *) malloc(ft_wordcount(s, c));
+	split = ft_2d_calloc(s, c);
 	if (split == NULL)
 		return (NULL);
 	k = 0;
-	while (s[i])
+	i = -1;
+	while (s[++i])
 	{
-		if (s[i] == c)
+		if (s[i] != c)
 		{
-			j = 0; 
-			while (s[i + j] == c)
+			j = 0;
+			while (s[(i + j)] != c && s[(i + j)])
+			{
+				split[k][j] = s[i + j];
 				j++;
-			split[k] = ft_substr(s, i, j);
+			}
 			k++;
+			i = i + j - 1;
 		}
-		i++;
 	}
 	return (split);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	char	**tab;
 	int	i = 0;
 	
-	tab = ft_split(" 1 22 333   4444    5 ", ' ');
-	printf("%s\n", tab[1]);
-}
+	tab = ft_split("  tripouille  43 oooo", ' ');
+	while (tab[i])
+	{
+		printf("%s\n", tab[i]);
+		i++;
+	}
+} */

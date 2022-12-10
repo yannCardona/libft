@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 13:43:42 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/10 11:12:12 by ycardona         ###   ########.fr       */
+/*   Created: 2022/12/10 11:37:35 by ycardona          #+#    #+#             */
+/*   Updated: 2022/12/10 11:49:15 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nelem, size_t elsize)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	void	*ptr;
+	char			*s_f;
+	unsigned int	i;
 
-	ptr = (void *) malloc(nelem * elsize);
-	if (ptr == NULL)
+	s_f = ft_calloc(ft_strlen(s) + 1, 1);
+	if (s_f == NULL)
 		return (NULL);
-	ptr = ft_memset(ptr, 0, nelem * elsize);
-	return (ptr);
+	i = 0;
+	while (s[i])
+	{
+		s_f[i] = (*f)(i, s[i]);
+		i++;
+	}
+	return (s_f);
 }
