@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 09:25:18 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/10 11:10:37 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:43:57 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,13 @@ char	*ft_itoa(int n)
 	size_t	start;
 	char	*num;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	start = 0;
 	len = ft_digits(n);
 	num = ft_calloc(len + 1, 1);
-	printf("%s", num);
 	if (num == NULL)
 		return (NULL);
-	if (n == -2147483648)
-		return (num = "-2147483648");
 	if (n < 0)
 	{
 		n = -1 * n;

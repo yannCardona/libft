@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 00:04:28 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/13 00:19:11 by ycardona         ###   ########.fr       */
+/*   Created: 2022/12/12 15:06:01 by ycardona          #+#    #+#             */
+/*   Updated: 2022/12/13 13:56:14 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+int	ft_lstsize(t_list *lst)
 {
-	t_list 	*current;
-	t_list	*new;
-	t_list	*map;
+	t_list	*current;
+	int		i;
 
 	current = lst;
+	i = 0;
 	while (current != NULL)
 	{
-		new = ft_lstnew((*f)(current -> content));
-		ft_lstadd_back(&map, new);
 		current = current -> next;
+		i++;
 	}
-	new -> content = "hehe";
-	(*del)(new -> content); 
-	return (map);
+	return (i);
 }

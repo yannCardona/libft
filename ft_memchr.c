@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:57:24 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/08 19:51:42 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:00:26 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (c_s[i] == c)
+		if (c_s[i] == (char) c)
 			return ((void *) &c_s[i]);
 		i++;
 	}

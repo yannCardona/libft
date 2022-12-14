@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:20:42 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/12 22:38:28 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:58:59 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*last;
+
 	if (lst == NULL)
 		return (NULL);
 	last = lst;

@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 14:29:47 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/07 15:29:03 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:59:58 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ char	*ft_strrchr(const char *s, int c)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == (char) c)
 			r = i;
 		i++;
 	}
-	if (c == '\0')
+	if ((char) c == '\0')
 		return ((char *) &(s[i]));
-	if (0 <= r && s[r] == c)
+	if (0 <= r && s[r] == (char) c)
 		return ((char *) &(s[r]));
 	return (NULL);
 }

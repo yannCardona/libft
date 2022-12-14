@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:07:55 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/10 12:23:31 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:45:34 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd);
+	{
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		n = 147483648;
+	}
 	if (n < 0)
 	{
 		n = -n;
