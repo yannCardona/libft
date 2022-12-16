@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:38:37 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/13 13:58:27 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/17 00:33:32 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ char	**ft_split(char const *s, char c)
 		}
 		i++;
 	}
-	split[k] = '\0';
 	return (split);
 }
 
