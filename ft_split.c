@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:38:37 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/17 00:33:32 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/17 01:20:25 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,27 @@ static size_t	ft_count(char const *s, char c)
 	return (count);
 }
 
+static	size_t	ft_subend(char const *s, char c, int i)
+{
+	size_t	j;
+
+	j = 0;
+	while (s[(i + j)] != c && s[(i + j)])
+				j++;
+	return (j);
+}
+
+static void	ft_free(char **split, int k)
+{
+	while (0 <= --k)
+		free(split[k]);
+	free(split);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
 	int		i;
-	size_t	j;
 	int		k;
 
 	split = ft_calloc((ft_count(s, c) + 1) * sizeof(char *), 1);
@@ -50,30 +66,17 @@ char	**ft_split(char const *s, char c)
 	while (s[i])
 	{
 		if (s[i] != c)
-		{
-			j = 0;
-			while (s[(i + j)] != c && s[(i + j)])
-				j++;
-			split[k] = ft_substr(s, i, j);
+		{			
+			split[k] = ft_substr(s, i, ft_subend(s, c, i));
+			if (split[k] == NULL)
+			{	
+				ft_free(split, k);
+				return (NULL);
+			}
 			k++;
-			i = i + j - 1;
+			i = i + ft_subend(s, c, i) - 1;
 		}
 		i++;
 	}
 	return (split);
 }
-
-/* int	main(void)
-{
-	char	**tab;
-	int	i = 0;
-	
-	//printf("%zu\n", ft_count(" ahhaha ksl iiii", ' '));
-	tab = ft_split(" jaohid kak la;d l", ' ');
-	//printf("%s", tab[3]);
-	while (tab[i])
-	{
-		printf("%s\n", tab[i]);
-		i++;
-	}
-} */
