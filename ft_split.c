@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:38:37 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/17 01:20:25 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/20 13:35:13 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static	size_t	ft_subend(char const *s, char c, int i)
 
 	j = 0;
 	while (s[(i + j)] != c && s[(i + j)])
-				j++;
+		j++;
 	return (j);
 }
 

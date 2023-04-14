@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:43:42 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/13 15:48:25 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/20 13:42:52 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 void	*ft_calloc(size_t nelem, size_t elsize)
 {
 	void	*ptr;
+	size_t	total;
 
+	total = nelem * elsize;
+	if (elsize && nelem && total / elsize != nelem)
+		return (NULL);
 	ptr = (void *) malloc(nelem * elsize);
 	if (ptr == NULL)
 		return (NULL);

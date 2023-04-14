@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 00:04:28 by ycardona          #+#    #+#             */
-/*   Updated: 2022/12/17 02:30:45 by ycardona         ###   ########.fr       */
+/*   Updated: 2022/12/20 13:17:10 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	map = NULL;
 	while (lst != NULL)
 	{
-		new = ft_lstnew((*f)(lst -> content));
+		new = ft_lstnew(f(lst -> content));
 		if (new == NULL)
 		{
-			ft_lstclear(&map, (*del));
+			ft_lstclear(&map, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&map, new);
