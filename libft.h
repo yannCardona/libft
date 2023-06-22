@@ -6,7 +6,7 @@
 /*   By: ycardona <ycardona@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:02:07 by ycardona          #+#    #+#             */
-/*   Updated: 2023/04/14 20:13:18 by ycardona         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:20:11 by ycardona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -77,5 +78,14 @@ void		ft_shiftbuff(char *str, int start);
 char		*ft_strjoin_gnl(char *str, char *str_add, int size);
 char		*ft_calloc_gnl(size_t size);
 void		ft_bzero_gnl(char *str);
+int			ft_printf(const char *str, ...);
+int			ft_printi(va_list ap, char i, int count, int *index);
+int			ft_printchar(char c, int fd, int count);
+int			ft_printstr(char *s, int fd, int count);
+int			ft_printnbr(int n, int fd, int count);
+int			ft_printhex(unsigned int n, int fd, int count);
+int			ft_printchex(unsigned int n, int fd, int count);
+int			ft_printuint(unsigned int n, int fd, int count);
+int			ft_printp(unsigned long int n, int fd, int count);
 
 #endif
