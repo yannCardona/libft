@@ -1,3 +1,3 @@
-#LIBFT 
+# LIBFT 
 
-This was my first project
+This was my first project in C
